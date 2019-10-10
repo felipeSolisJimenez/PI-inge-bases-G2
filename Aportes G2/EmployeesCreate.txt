@@ -1,0 +1,44 @@
+<html>
+@model FeLuisesScrumDEV.Models.Employee
+<head>
+
+    
+    @{
+        ViewBag.Title = "Create";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <script>
+        $(document).ready(function () {
+            getProvincia();
+        })
+    </script>
+
+</head>
+
+	<body>
+ 		<div class="form-group">
+		    <b>Provincia</b>
+                    <div class="col-md-10">
+ 			@Html.DropDownListFor(model => model.province, Enumerable.Empty<SelectListItem>(), "-- Select Name --", new { @class = "form-control", onchange = "getCanton()"  })
+			@Html.ValidationMessageFor(model => model.province, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                   <b>Cantón</b>
+ 		   <div class="col-md-10">
+                    	@Html.DropDownListFor(model => model.canton, Enumerable.Empty<SelectListItem>(), "-- Select Name --", new { @class = "form-control",  onchange = "getDistrict()"})
+                    	@Html.ValidationMessageFor(model => model.canton, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <b>Distrito</b>
+                    <div class="col-md-10">
+ 			@Html.DropDownListFor(model => model.district, Enumerable.Empty<SelectListItem>(), "-- Select Name --", new { @class = "form-control"})
+                        @Html.ValidationMessageFor(model => model.district, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+	<body>
+</html>
